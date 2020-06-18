@@ -34,7 +34,7 @@ c:\Users\kpatr\OneDrive\Desktop\scripts\guardian>python guardian.py -c "dir -a" 
 
 2020-06-18 13:56:42.652491 - GIVING UP: Maximum repeations reached for dir -a
 ```
-## How to repeat for ever in case of failure
+## How to repeat until successful execution
 Giving a negative value for the -r parameters will do the trick because there are no bugs, only features ;)
 ```
 c:\Users\kpatr\OneDrive\Desktop\scripts\guardian>python guardian.py -c "dir -a" -w 3 -r -1
