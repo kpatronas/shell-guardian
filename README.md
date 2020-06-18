@@ -22,6 +22,7 @@ STDOUT:
                2 Dir(s)  357,928,259,584 bytes free
 ```
 -w: wait time between execution failures in seconds. default: 30s
+
 -r: maximum times to repeat execution in case of failure. default: 1 repeation
 ```
 c:\Users\kpatr\OneDrive\Desktop\scripts\guardian>python guardian.py -c "dir -a" -w 3 -r 3
