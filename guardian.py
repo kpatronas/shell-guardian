@@ -53,11 +53,6 @@ if __name__ == '__main__':
         else:
             stderr_value = stderr_value.decode("utf-8")
             print('%s - TRY - %s: FAILURE: %s STDERR: %s'%(dt,tries,cmd,stderr_value))
-            if tries == repeat:
-                print('%s - GIVING UP: Maximum repeations reached for %s'%(dt,cmd))
-                sys.exit(process.returncode)
-            else:
-                time.sleep(wait)
             if fail:
                 fail_process = subprocess.Popen(fail, shell=True, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE,)
                 fail_stdout_value, fail_stderr_value = fail_process.communicate()
@@ -67,3 +62,8 @@ if __name__ == '__main__':
                     print("ON FAIL STDOUT: %s"%(fail_stdout_value))
                 if fail_stderr_value:
                     print("ON FAIL STDERR: %s"%(fail_stderr_value))
+            if tries == repeat:
+                print('%s - GIVING UP: Maximum repeations reached for %s'%(dt,cmd))
+                sys.exit(process.returncode)
+            else:
+                time.sleep(wait)
