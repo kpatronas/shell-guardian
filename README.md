@@ -32,3 +32,26 @@ $ ./guardian.py -c "lsa ./test" -r 2 -w 3 -e 0
 
 2021-07-18 21:22:26.223534 - GIVING UP: Maximum repeations reached for lsa ./test
 ```
+_Execute a command that might fail or might success, execute an follow on command on each case_
+* -s: the command executed on success
+* -f: the command executed on each failed atempt
+
+Both arguments can be optional
+```
+./guardian.py -c "ls ./test" -f "echo 'fail'" -s "echo 'success'"
+2021-07-18 21:45:32.856868 - SUCCESS - STDIN: ls ./test
+STDOUT:
+a.txt
+b.txt
+
+ON SUCCESS STDIN: echo 'success'
+ON SUCCESS STDOUT: success
+
+./guardian.py -c "lsa ./test" -f "echo 'fail'" -s "echo 'success'"
+2021-07-18 21:45:38.132180 - TRY - 1: FAILURE: lsa ./test STDERR: /bin/sh: 1: lsa: not found
+
+ON FAIL STDIN: echo 'fail'
+ON FAIL STDOUT: fail
+
+2021-07-18 21:45:38.132180 - GIVING UP: Maximum repeations reached for lsa ./test
+```
