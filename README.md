@@ -1,6 +1,6 @@
 # shell-guardian
 
-## What is shell-guardian?
+##  What is shell-guardian?
 
 Shell guardian is a tool that enhances the execution of shell commands by adding the following capabilities
 
